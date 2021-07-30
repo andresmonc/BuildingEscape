@@ -3939,18 +3939,16 @@
 /home/andresmonc/Documents/code/UnrealEngine/Engine/Source/ThirdParty/PhysX3/APEX_1.4/include/destructible
 /home/andresmonc/Documents/code/UnrealEngine/Engine/Source/ThirdParty/GoogleARCore/include
 /home/andresmonc/Documents/code/UnrealEngine/Engine/Source
-/home/andresmonc/Documents/Unreal Projects/BuildingEscape/Intermediate/Build/Linux/B4D820EA/UE4Editor/Inc/BuildingEscape
-/home/andresmonc/Documents/Unreal Projects/BuildingEscape/Source
-/home/andresmonc/Documents/code/UnrealEngine/Engine/Intermediate/Build/Linux/B4D820EA/UE4Editor/Inc/Core
+/home/andresmonc/Documents/code/UnrealEngine/Engine/Intermediate/Build/Linux/B4D820EA/UE4Editor/Inc/Engine
 /home/andresmonc/Documents/code/UnrealEngine/Engine/Source/Runtime
+/home/andresmonc/Documents/code/UnrealEngine/Engine/Source/Runtime/Engine/Classes
+/home/andresmonc/Documents/code/UnrealEngine/Engine/Source/Runtime/Engine/Public
+/home/andresmonc/Documents/code/UnrealEngine/Engine/Intermediate/Build/Linux/B4D820EA/UE4Editor/Inc/Core
 /home/andresmonc/Documents/code/UnrealEngine/Engine/Source/Runtime/TraceLog/Public
 /home/andresmonc/Documents/code/UnrealEngine/Engine/Source/Runtime/Core/Public
 /home/andresmonc/Documents/code/UnrealEngine/Engine/Intermediate/Build/Linux/B4D820EA/UE4Editor/Inc/TraceLog
 /home/andresmonc/Documents/code/UnrealEngine/Engine/Intermediate/Build/Linux/B4D820EA/UE4Editor/Inc/CoreUObject
 /home/andresmonc/Documents/code/UnrealEngine/Engine/Source/Runtime/CoreUObject/Public
-/home/andresmonc/Documents/code/UnrealEngine/Engine/Intermediate/Build/Linux/B4D820EA/UE4Editor/Inc/Engine
-/home/andresmonc/Documents/code/UnrealEngine/Engine/Source/Runtime/Engine/Classes
-/home/andresmonc/Documents/code/UnrealEngine/Engine/Source/Runtime/Engine/Public
 /home/andresmonc/Documents/code/UnrealEngine/Engine/Intermediate/Build/Linux/B4D820EA/UE4Editor/Inc/NetCore
 /home/andresmonc/Documents/code/UnrealEngine/Engine/Source/Runtime/Net
 /home/andresmonc/Documents/code/UnrealEngine/Engine/Source/Runtime/Net/Core/Classes
@@ -4177,6 +4175,8 @@
 /home/andresmonc/Documents/code/UnrealEngine/Engine/Source/Editor/Kismet/Public
 /home/andresmonc/Documents/code/UnrealEngine/Engine/Intermediate/Build/Linux/B4D820EA/UE4Editor/Inc/ClothingSystemRuntimeInterface
 /home/andresmonc/Documents/code/UnrealEngine/Engine/Source/Runtime/ClothingSystemRuntimeInterface/Public
+/home/andresmonc/Documents/Unreal Projects/BuildingEscape/Intermediate/Build/Linux/B4D820EA/UE4Editor/Inc/BuildingEscape
+/home/andresmonc/Documents/Unreal Projects/BuildingEscape/Source
 /home/andresmonc/Documents/code/UnrealEngine/Engine/Source/ThirdParty/PhysX3/PxShared/include
 /home/andresmonc/Documents/code/UnrealEngine/Engine/Source/ThirdParty/PhysX3/PxShared/include/cudamanager
 /home/andresmonc/Documents/code/UnrealEngine/Engine/Source/ThirdParty/PhysX3/PxShared/include/filebuf

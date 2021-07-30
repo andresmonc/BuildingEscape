@@ -17999,5 +17999,6 @@ HEADERS += \
 	"$$unrealRootPath/Engine/Plugins/XGEController/Source/Public/XGEControllerModule.h" \
 	"$$BuildingEscapeRootPath/Source/BuildingEscape/BuildingEscape.h" \
 	"$$BuildingEscapeRootPath/Source/BuildingEscape/BuildingEscapeGameModeBase.h" \
+	"$$BuildingEscapeRootPath/Source/BuildingEscape/WorldPosition.h" \
  
 

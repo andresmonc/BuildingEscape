@@ -13619,5 +13619,6 @@ SOURCES += \
 	"$$unrealRootPath/Engine/Plugins/XGEController/Source/Private/XGEControllerModule.cpp" \
 	"$$BuildingEscapeRootPath/Source/BuildingEscape/BuildingEscape.cpp" \
 	"$$BuildingEscapeRootPath/Source/BuildingEscape/BuildingEscapeGameModeBase.cpp" \
+	"$$BuildingEscapeRootPath/Source/BuildingEscape/WorldPosition.cpp" \
  
 
