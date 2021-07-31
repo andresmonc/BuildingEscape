@@ -19,8 +19,10 @@ UWorldPosition::UWorldPosition()
 void UWorldPosition::BeginPlay()
 {
 	Super::BeginPlay();
-
+	FString Log = TEXT("Hello!");
+	
 	// ...
+	UE_LOG(LogTemp,Warning, TEXT("%s"), *Log);
 	
 }
 
