@@ -53,7 +53,7 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 
 void UOpenDoor::OpenDoor(float DeltaTime)
 {
-	DoorYawChange(CurrentYaw,TargetYaw);
+	DoorYawChange(CurrentYaw,TargetYaw,DeltaTime);
 }
 
 void UOpenDoor::CloseDoor(float DeltaTime)
