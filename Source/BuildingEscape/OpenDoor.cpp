@@ -22,6 +22,10 @@ void UOpenDoor::BeginPlay()
 	InitialYaw = DoorRotation.Yaw;
 	CurrentYaw = InitialYaw;
 	TargetYaw += InitialYaw;
+
+	if(!PressurePlate || !ActorThatOpens){
+		UE_LOG(LogTemp,Error, TEXT("No PressurePlate or ActorThatOpens set on %s"),*GetOwner()->GetName)
+	}
 }
 
 
