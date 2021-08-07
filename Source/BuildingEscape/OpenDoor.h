@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "Engine/TriggerVolume.h"
 #include "OpenDoor.generated.h"
 
 
@@ -31,5 +32,7 @@ private:
 	float DoorSpeed = 1.0f;
 	float InitialYaw;
 	float CurrentYaw;
+	UPROPERTY(EditAnywhere)
+	ATriggerVolume* PressurePlate;
 	FRotator DoorRotation;
 };
