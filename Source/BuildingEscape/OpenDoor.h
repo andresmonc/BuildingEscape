@@ -27,6 +27,8 @@ public:
 private:
 	UPROPERTY(EditAnywhere)
 	float TargetYaw = 90.f;
+	UPROPERTY(EditAnywhere)
+	float DoorSpeed = 1.0f;
 	float InitialYaw;
 	float CurrentYaw;
 	FRotator DoorRotation;
