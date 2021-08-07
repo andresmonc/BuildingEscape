@@ -24,7 +24,7 @@ void UOpenDoor::BeginPlay()
 	TargetYaw += InitialYaw;
 
 	if(!PressurePlate || !ActorThatOpens){
-		UE_LOG(LogTemp,Error, TEXT("No PressurePlate or ActorThatOpens set on %s"),*GetOwner()->GetName())
+		UE_LOG(LogTemp,Error, TEXT("No PressurePlate or ActorThatOpens set on %s"),*GetOwner()->GetName());
 	}
 }
 
