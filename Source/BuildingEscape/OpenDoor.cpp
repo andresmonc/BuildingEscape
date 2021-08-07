@@ -26,8 +26,14 @@ void UOpenDoor::BeginPlay()
 	TargetYaw += InitialYaw;
 
 	if(!PressurePlate || !ActorThatOpens){
-		UE_LOG(LogTemp,Error, TEXT("No PressurePlate or ActorThatOpens set on %s"),*GetOwner()->GetName());
+		UE_LOG(LogTemp,Error, TEXT("No PressurePlate set on %s"),*GetOwner()->GetName());
 	}
+
+	// Set ActorThatOpens to player
+	if (!ActorThatOpens){
+		ActorThatOpens = GetWorld()->GetFirstPlayerController()->GetPawn();
+	}
+	
 }
 
 
@@ -36,7 +42,7 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	if (ActorThatOpens && PressurePlate && PressurePlate->IsOverlappingActor(ActorThatOpens)) 
+	if (PressurePlate && PressurePlate->IsOverlappingActor(ActorThatOpens)) 
 	{
 		OpenDoor(DeltaTime);
 	}
