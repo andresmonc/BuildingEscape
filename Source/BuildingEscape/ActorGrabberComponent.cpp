@@ -1,7 +1,8 @@
 // Copyright Jaime Moncayo 2021
 
-
+#include "GameFramework/PlayerController.h"
 #include "ActorGrabberComponent.h"
+
 
 
 // Sets default values for this component's properties
@@ -30,6 +31,11 @@ void UActorGrabberComponent::TickComponent(float DeltaTime, ELevelTick TickType,
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	// ...
+	// Get Player viewpoint
+	
+	// Reach out to a certain distance(Ray Cast)
+
+	// Raycast collision- can we pick it up?
+
 }
 
