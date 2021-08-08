@@ -32,6 +32,7 @@ void UGrabber::BeginPlay()
 void UGrabber::Grab()
 {
 	UE_LOG(LogTemp, Error, TEXT("Grabber Pressed"));
+	GetFirstPhysicsBodyInReach();
 
 }
 
@@ -46,42 +47,6 @@ void UGrabber::Release()
 void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-
-
-	// Get players viewpoint
-	FVector PlayerViewPointLocation;
-	FRotator PlayerViewPointRotation;
-	GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint(
-		OUT PlayerViewPointLocation, 
-		OUT PlayerViewPointRotation);
-
-	/// Draw Line Showing Reach
-	FVector LineTraceEnd = PlayerViewPointLocation + PlayerViewPointRotation.Vector() * Reach;
-	DrawDebugLine(
-		GetWorld(),
-		PlayerViewPointLocation,
-		LineTraceEnd,
-		FColor(0,255,255),
-		false,
-		0.f,
-		0,
-		5.f
-	);
-
-	FHitResult Hit;
-	FCollisionQueryParams TraceParams(FName(TEXT("")),false,GetOwner());
-	// Ray cast to a certain distance
-	GetWorld()->LineTraceSingleByObjectType(
-		OUT Hit,
-		PlayerViewPointLocation,
-		LineTraceEnd,
-		FCollisionObjectQueryParams(ECollisionChannel::ECC_PhysicsBody),
-		TraceParams
-	);
-	AActor* HitActor = Hit.GetActor();
-	if (HitActor) {
-		UE_LOG(LogTemp, Warning, TEXT("hit: %s"),*HitActor->GetName());
-	}
 
 }
 
@@ -104,4 +69,34 @@ void UGrabber::BindInputs()
 		InputComponent->BindAction("Grab/Pickup", IE_Pressed, this, &UGrabber::Grab);
 		InputComponent->BindAction("Grab/Pickup", IE_Released, this, &UGrabber::Release);
 	}
+}
+
+
+FHitResult UGrabber::GetFirstPhysicsBodyInReach() const
+{
+	// Get players viewpoint
+	FVector PlayerViewPointLocation;
+	FRotator PlayerViewPointRotation;
+	GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint(
+		OUT PlayerViewPointLocation, 
+		OUT PlayerViewPointRotation);
+
+	/// Draw Line Showing Reach
+	FVector LineTraceEnd = PlayerViewPointLocation + PlayerViewPointRotation.Vector() * Reach;
+
+	FHitResult Hit;
+	FCollisionQueryParams TraceParams(FName(TEXT("")),false,GetOwner());
+	// Ray cast to a certain distance
+	GetWorld()->LineTraceSingleByObjectType(
+		OUT Hit,
+		PlayerViewPointLocation,
+		LineTraceEnd,
+		FCollisionObjectQueryParams(ECollisionChannel::ECC_PhysicsBody),
+		TraceParams
+	);
+	AActor* HitActor = Hit.GetActor();
+	if (HitActor) {
+		UE_LOG(LogTemp, Warning, TEXT("hit: %s"),*HitActor->GetName());
+	}
+	return Hit;
 }

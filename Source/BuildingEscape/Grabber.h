@@ -33,5 +33,7 @@ private:
 	void Release();
 	void FindPhysicsHandle();
 	void BindInputs();
+
+	FHitResult GetFirstPhysicsBodyInReach() const;
 };
 
