@@ -42,6 +42,7 @@ private:
 	AActor* ActorThatOpens;
 	FRotator DoorRotation;
 	float DoorLastOpened = 0.f;
+	UPROPERTY(EditAnywhere)
 	float DoorCloseDelay = 2.f;
 	void DoorYawChange(float Current,float Target,float DeltaTime);
 
