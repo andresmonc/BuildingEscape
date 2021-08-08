@@ -22,7 +22,7 @@ public:
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
-	
+
 private:
 	float Reach = 100.f;
 
@@ -31,6 +31,7 @@ private:
 
 	void Grab();
 	void Release();
-
+	void FindPhysicsHandle();
+	void BindInputs();
 };
 

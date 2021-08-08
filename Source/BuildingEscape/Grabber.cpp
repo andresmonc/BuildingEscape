@@ -23,21 +23,9 @@ void UGrabber::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// ...
-	InputComponent = GetOwner()->FindComponentByClass<UInputComponent>();
-	PhysicsHandle = GetOwner()->FindComponentByClass<UPhysicsHandleComponent>();
-	if (PhysicsHandle)
-	{
-		
-	} else
-	{
-	    UE_LOG(LogTemp, Error, TEXT("No physics handle on %s actor"),*GetOwner()->GetName());
-	}
+	FindPhysicsHandle();
 
-	if (InputComponent) {
-		InputComponent->BindAction("Grab/Pickup", IE_Pressed, this, &UGrabber::Grab);
-		InputComponent->BindAction("Grab/Pickup", IE_Released, this, &UGrabber::Release);
-	}
+	BindInputs();
 
 }
 
@@ -97,3 +85,23 @@ void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 
 }
 
+void UGrabber::FindPhysicsHandle()
+{
+	PhysicsHandle = GetOwner()->FindComponentByClass<UPhysicsHandleComponent>();
+	if (PhysicsHandle)
+	{
+		
+	} else
+	{
+	    UE_LOG(LogTemp, Error, TEXT("No physics handle on %s actor"),*GetOwner()->GetName());
+	}
+}
+
+void UGrabber::BindInputs()
+{ 
+	InputComponent = GetOwner()->FindComponentByClass<UInputComponent>();
+	if (InputComponent) {
+		InputComponent->BindAction("Grab/Pickup", IE_Pressed, this, &UGrabber::Grab);
+		InputComponent->BindAction("Grab/Pickup", IE_Released, this, &UGrabber::Release);
+	}
+}
