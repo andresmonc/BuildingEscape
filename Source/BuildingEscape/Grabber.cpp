@@ -113,4 +113,3 @@ FVector UGrabber::GetPlayerWorldPos() const
 		OUT PlayerViewPointRotation);
 	return PlayerViewPointLocation;
 }
-
