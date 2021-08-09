@@ -34,5 +34,7 @@ private:
 	void BindInputs();
 
 	FHitResult GetFirstPhysicsBodyInReach() const;
+	FVector GetPlayersReach() const;
+	FVector GetPlayerWorldPos() const;
 };
 
