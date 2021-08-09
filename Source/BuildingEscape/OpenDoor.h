@@ -37,10 +37,10 @@ private:
 	float InitialYaw;
 	float CurrentYaw;
 	UPROPERTY(EditAnywhere)
-	ATriggerVolume* PressurePlate;
+	ATriggerVolume* PressurePlate = nullptr;
 
 	UPROPERTY(EditAnywhere)
-	AActor* ActorThatOpens;
+	AActor* ActorThatOpens = nullptr;
 	FRotator DoorRotation;
 	float DoorLastOpened = 0.f;
 	UPROPERTY(EditAnywhere)

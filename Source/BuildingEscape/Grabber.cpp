@@ -32,7 +32,8 @@ void UGrabber::BeginPlay()
 void UGrabber::Grab()
 {	
 	FHitResult HitResult = GetFirstPhysicsBodyInReach();
-	if (HitResult.GetActor()){
+
+	if (HitResult.GetActor() && PhysicsHandle){
 		PhysicsHandle->GrabComponentAtLocation(HitResult.GetComponent(),NAME_None,GetPlayersReach());
 	}
 
@@ -41,6 +42,9 @@ void UGrabber::Grab()
 void UGrabber::Release()
 {
 	UE_LOG(LogTemp, Error, TEXT("Grabber Released"));
+	if (!PhysicsHandle){
+		return;
+	}
 	PhysicsHandle->ReleaseComponent();
 }
 
