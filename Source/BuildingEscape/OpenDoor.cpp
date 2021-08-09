@@ -48,10 +48,11 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 void UOpenDoor::OpenDoor(float DeltaTime)
 {
 	if (!AudioComponent){return;}
+	DoorSoundClosePlayed = false;
+
 	if(!DoorSoundOpenPlayed){
 		AudioComponent->Play();
 		DoorSoundOpenPlayed = true;
-		DoorSoundClosePlayed = false;
 	}
 	DoorYawChange(CurrentYaw,TargetYaw,DeltaTime);
 }
@@ -59,11 +60,11 @@ void UOpenDoor::OpenDoor(float DeltaTime)
 void UOpenDoor::CloseDoor(float DeltaTime)
 {
 	if (!AudioComponent){return;}
+	DoorSoundOpenPlayed = false;
 	DoorYawChange(CurrentYaw,InitialYaw,DeltaTime);
 	if (!DoorSoundClosePlayed){
 		AudioComponent->Play();
 		DoorSoundClosePlayed = true;
-		DoorSoundOpenPlayed = false;
 	}
 }
 
