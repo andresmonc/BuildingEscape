@@ -66,11 +66,8 @@ void UOpenDoor::DoorYawChange(float Current,float Target,float DeltaTime)
 
 float UOpenDoor::TotalMassOfActors() const
 {
-	if (!PressurePlate)
-	{
-		return;
-	}
 	float TotalMass = 0.f;
+	if (!PressurePlate)	{return TotalMass;}
 	// Find all overlapping actors
 	TArray<AActor*> OverlappingActors;
 	PressurePlate->GetOverlappingActors(OUT OverlappingActors);
