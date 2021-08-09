@@ -25,10 +25,8 @@ void UOpenDoor::BeginPlay()
 	InitialYaw = DoorRotation.Yaw;
 	CurrentYaw = InitialYaw;
 	TargetYaw += InitialYaw;
-
-	if(!PressurePlate){
-		UE_LOG(LogTemp,Error, TEXT("No PressurePlate set on %s"),*GetOwner()->GetName());
-	}
+	FindPressurePlate();
+	FindAudioComponent();
 }
 
 // Called every frame
@@ -49,12 +47,24 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 
 void UOpenDoor::OpenDoor(float DeltaTime)
 {
+	if (!AudioComponent){return;}
+	if(!DoorSoundOpenPlayed){
+		AudioComponent->Play();
+		DoorSoundOpenPlayed = true;
+		DoorSoundClosePlayed = false;
+	}
 	DoorYawChange(CurrentYaw,TargetYaw,DeltaTime);
 }
 
 void UOpenDoor::CloseDoor(float DeltaTime)
 {
+	if (!AudioComponent){return;}
 	DoorYawChange(CurrentYaw,InitialYaw,DeltaTime);
+	if (!DoorSoundClosePlayed){
+		AudioComponent->Play();
+		DoorSoundClosePlayed = true;
+		DoorSoundOpenPlayed = false;
+	}
 }
 
 void UOpenDoor::DoorYawChange(float Current,float Target,float DeltaTime)
@@ -77,4 +87,22 @@ float UOpenDoor::TotalMassOfActors() const
 		TotalMass += Actor->FindComponentByClass<UPrimitiveComponent>()->GetMass();
 	}
 	return TotalMass;
+}
+
+
+void UOpenDoor::FindAudioComponent() 
+{
+	AudioComponent = GetOwner()->FindComponentByClass<UAudioComponent>();
+	if (!AudioComponent)
+	{
+		UE_LOG(LogTemp, Error, TEXT("Missing audio component!"))
+	}
+
+}
+
+void  UOpenDoor::FindPressurePlate()
+{
+	if(!PressurePlate){
+		UE_LOG(LogTemp,Error, TEXT("No PressurePlate set on %s"),*GetOwner()->GetName());
+	}
 }

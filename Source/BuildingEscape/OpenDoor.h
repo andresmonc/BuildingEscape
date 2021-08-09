@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "Components/AudioComponent.h"
 #include "Engine/TriggerVolume.h"
 #include "OpenDoor.generated.h"
 
@@ -27,6 +28,10 @@ public:
 	void OpenDoor(float DeltaTime);
 	void CloseDoor(float DeltaTime);
 	float TotalMassOfActors() const;
+	void FindAudioComponent();
+	void FindPressurePlate();
+	bool DoorSoundOpenPlayed = false;
+	bool DoorSoundClosePlayed = false;
 
 
 private:
@@ -43,5 +48,6 @@ private:
 	UPROPERTY(EditAnywhere)
 	float DoorCloseDelay = 2.f;
 	void DoorYawChange(float Current,float Target,float DeltaTime);
-
+	UPROPERTY()
+	UAudioComponent* AudioComponent = nullptr;
 };
