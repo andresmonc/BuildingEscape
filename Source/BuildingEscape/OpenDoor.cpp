@@ -26,15 +26,9 @@ void UOpenDoor::BeginPlay()
 	CurrentYaw = InitialYaw;
 	TargetYaw += InitialYaw;
 
-	if(!PressurePlate || !ActorThatOpens){
+	if(!PressurePlate){
 		UE_LOG(LogTemp,Error, TEXT("No PressurePlate set on %s"),*GetOwner()->GetName());
 	}
-
-	// Set ActorThatOpens to player
-	if (!ActorThatOpens){
-		ActorThatOpens = GetWorld()->GetFirstPlayerController()->GetPawn();
-	}
-	
 }
 
 // Called every frame
@@ -72,6 +66,10 @@ void UOpenDoor::DoorYawChange(float Current,float Target,float DeltaTime)
 
 float UOpenDoor::TotalMassOfActors() const
 {
+	if (!PressurePlate)
+	{
+		return;
+	}
 	float TotalMass = 0.f;
 	// Find all overlapping actors
 	TArray<AActor*> OverlappingActors;

@@ -53,7 +53,7 @@ void UGrabber::Release()
 void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-	if (PhysicsHandle->GrabbedComponent){
+	if (PhysicsHandle && PhysicsHandle->GrabbedComponent){
 		PhysicsHandle->SetTargetLocation(GetPlayersReach());
 	}
 }
